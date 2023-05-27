@@ -16,7 +16,7 @@ export const Row = ({ customer, edit, _delete }: Props) => {
       <td>{customer.telefonos}</td>
       <td>{customer.contactos}</td>
       <td>{convertDate(customer.createdAt!)}</td>
-      <td>{convertDate(customer.createdAt!)}</td>
+      <td>{convertDate(customer.updatedAt!)}</td>
       <td>
         <button type="button" className="btn btn-primary me-2" onClick={edit}>
           <i className="bi bi-pencil-square"></i>

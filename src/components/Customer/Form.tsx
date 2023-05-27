@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { ICustomer } from "../../interfaces/customer.interface";
+import React from "react";
+import { ICustomer, QueryCustomer } from "../../interfaces/customer.interface";
 import { customerService } from "../../services/customer.service";
 import Swal from "sweetalert2";
 import { Formik, FormikHelpers, FormikProps, Form as FForm } from "formik";
@@ -10,7 +10,7 @@ export interface Props {
   type: string;
   data: ICustomer;
   handleCloseModal: () => void;
-  getData: () => Promise<void>;
+  getData: (data: QueryCustomer) => Promise<void>;
 }
 
 export const Form = ({ type, data, handleCloseModal, getData }: Props) => {
@@ -26,7 +26,7 @@ export const Form = ({ type, data, handleCloseModal, getData }: Props) => {
         .then((res) => {
           helpers.setSubmitting(false);
           handleCloseModal();
-          getData();
+          getData({});
           Swal.fire({
             text: "Cliente registrado con éxito",
             icon: "success",
@@ -48,7 +48,7 @@ export const Form = ({ type, data, handleCloseModal, getData }: Props) => {
         .then((res) => {
           helpers.setSubmitting(false);
           handleCloseModal();
-          getData();
+          getData({});
           Swal.fire({
             text: "Cliente actualizado con éxito",
             icon: "success",

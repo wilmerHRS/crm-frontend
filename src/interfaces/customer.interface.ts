@@ -7,3 +7,11 @@ export interface ICustomer {
   createdAt?: string;
   updatedAt?: string;
 }
+
+export interface QueryCustomer {
+  pageNumber?: number;
+  pageSize?: number;
+  startDate?: string;
+  endDate?: string;
+  search?: string;
+}

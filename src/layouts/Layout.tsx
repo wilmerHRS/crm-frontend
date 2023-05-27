@@ -10,7 +10,10 @@ interface Props {
 
 const Layout = ({ children, title }: Props) => {
   return (
-    <div className="d-flex justify-content-between bg-global vh-100">
+    <div
+      className="d-flex justify-content-between bg-global"
+      style={{ minHeight: "100vh" }}
+    >
       <Navbar />
       <div className="flex-grow-1">
         <Header />
