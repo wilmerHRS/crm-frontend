@@ -1,4 +1,3 @@
-import React from "react";
 import { ICustomer } from "../../../interfaces/customer.interface";
 import { convertDate } from "../../../helpers/convertDate";
 

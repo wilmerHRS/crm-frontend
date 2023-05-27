@@ -1,5 +1,3 @@
-import React from "react";
-
 const Navbar = () => {
   return (
     <div className="bg-white vh-100 py-2" style={{ width: "65px" }}>

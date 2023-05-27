@@ -1,4 +1,3 @@
-import React from "react";
 import { Thead } from "./Thead";
 import { Row } from "./Row";
 import { ICustomer } from "../../../interfaces/customer.interface";

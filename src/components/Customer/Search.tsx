@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { StyleContainerInput } from "./styled-components";
 import { QueryCustomer } from "../../interfaces/customer.interface";
 

@@ -1,12 +1,6 @@
-import React, { useState, useEffect } from "react";
 import { StyleBtnAS, StyleBtnPag } from "./styled-components";
 import { IPagination } from "../../interfaces/global.interface";
 import { QueryCustomer } from "../../interfaces/customer.interface";
-
-interface BtnPages {
-  btn1: number;
-  btn2: number;
-}
 
 interface Props {
   data: IPagination;
@@ -14,11 +8,6 @@ interface Props {
 }
 
 export const Pagination = ({ data, getData }: Props) => {
-  const [page, setPage] = useState({ btn1: 1, btn2: 2 });
-
-  console.log(data);
-  console.log(data.pageNumber);
-
   const page1 = data.pageNumber > 2 ? data.pageNumber - 1 : 1;
   const page2 = data.pageNumber > 2 ? data.pageNumber : 2;
 

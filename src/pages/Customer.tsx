@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Layout } from "../layouts";
 import {
   BtnExcel,
@@ -71,7 +71,7 @@ const Customer = () => {
       if (result.isConfirmed) {
         customerService
           .delete(id)
-          .then((res) => {
+          .then(() => {
             Swal.fire(
               "Eliminado!",
               "El Cliente fue eliminado con éxito",

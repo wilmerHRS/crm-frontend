@@ -1,13 +1,8 @@
-import React from "react";
 import { ICustomer, QueryCustomer } from "../../interfaces/customer.interface";
 import { customerService } from "../../services/customer.service";
 import Swal from "sweetalert2";
 import { Formik, FormikHelpers, FormikProps, Form as FForm } from "formik";
-import {
-  FErrorMessage,
-  FormErrorMessage,
-  InputText,
-} from "./styled-components";
+import { FormErrorMessage, InputText } from "./styled-components";
 import { CustomerFormSchema } from "../../validations/customer.validation";
 
 export interface Props {
@@ -27,7 +22,7 @@ export const Form = ({ type, data, handleCloseModal, getData }: Props) => {
     if (type === "CREATE") {
       await customerService
         .create(data)
-        .then((res) => {
+        .then(() => {
           helpers.setSubmitting(false);
           handleCloseModal();
           getData({});
@@ -36,7 +31,7 @@ export const Form = ({ type, data, handleCloseModal, getData }: Props) => {
             icon: "success",
           });
         })
-        .catch((err) => {
+        .catch(() => {
           helpers.setSubmitting(false);
           Swal.fire({
             text: "Ocurrio un error al enviar la información",
@@ -49,7 +44,7 @@ export const Form = ({ type, data, handleCloseModal, getData }: Props) => {
 
       await customerService
         .update(data, idCategory)
-        .then((res) => {
+        .then(() => {
           helpers.setSubmitting(false);
           handleCloseModal();
           getData({});
@@ -58,7 +53,7 @@ export const Form = ({ type, data, handleCloseModal, getData }: Props) => {
             icon: "success",
           });
         })
-        .catch((err) => {
+        .catch(() => {
           helpers.setSubmitting(false);
           Swal.fire({
             text: "Ocurrio un error al enviar la información",
@@ -78,11 +73,8 @@ export const Form = ({ type, data, handleCloseModal, getData }: Props) => {
       {({
         isSubmitting,
         values,
-        errors,
-        setFieldValue,
         handleChange,
         handleBlur,
-        touched,
       }: FormikProps<ICustomer>) => (
         <FForm>
           <div className="overflow-auto" style={{ maxHeight: "70vh" }}>
