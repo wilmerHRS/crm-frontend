@@ -12,9 +12,27 @@ export const Row = ({ customer, edit, _delete }: Props) => {
   return (
     <tr>
       <td>{customer.nombre}</td>
-      <td>{customer.direcciones}</td>
-      <td>{customer.telefonos}</td>
-      <td>{customer.contactos}</td>
+      <td>
+        <ul className="mb-0">
+          {customer.direcciones.split(",").map((direccion, i) => (
+            <li key={i}>{direccion.trim()}</li>
+          ))}
+        </ul>
+      </td>
+      <td>
+        <ul className="mb-0">
+          {customer.telefonos.split(",").map((telefono, i) => (
+            <li key={i}>{telefono.trim()}</li>
+          ))}
+        </ul>
+      </td>
+      <td>
+        <ul className="mb-0">
+          {customer.contactos.split(",").map((contacto, i) => (
+            <li key={i}>{contacto.trim()}</li>
+          ))}
+        </ul>
+      </td>
       <td>{convertDate(customer.createdAt!)}</td>
       <td>{convertDate(customer.updatedAt!)}</td>
       <td>

@@ -3,7 +3,11 @@ import { ICustomer, QueryCustomer } from "../../interfaces/customer.interface";
 import { customerService } from "../../services/customer.service";
 import Swal from "sweetalert2";
 import { Formik, FormikHelpers, FormikProps, Form as FForm } from "formik";
-import { FormErrorMessage, InputText } from "./styled-components";
+import {
+  FErrorMessage,
+  FormErrorMessage,
+  InputText,
+} from "./styled-components";
 import { CustomerFormSchema } from "../../validations/customer.validation";
 
 export interface Props {
@@ -77,35 +81,69 @@ export const Form = ({ type, data, handleCloseModal, getData }: Props) => {
         errors,
         setFieldValue,
         handleChange,
+        handleBlur,
+        touched,
       }: FormikProps<ICustomer>) => (
         <FForm>
-          <div>
-            <div className="mb-3">
+          <div className="overflow-auto" style={{ maxHeight: "70vh" }}>
+            <div className="mb-2">
+              <label className="mb-1" htmlFor="nombre">
+                Nombres
+              </label>
               <InputText
                 type="text"
                 name="nombre"
+                id="nombre"
                 placeholder="Nombre y Apellido"
               />
               <FormErrorMessage name="nombre" component={"p"} />
             </div>
-            <div className="mb-3">
+            <div className="mb-2">
+              <label className="mb-1" htmlFor="direcciones">
+                Dirección(es)
+              </label>
               <InputText
-                type="text"
+                as="textarea"
+                rows={2}
+                id="direcciones"
                 name="direcciones"
-                placeholder="Dirección"
+                placeholder="ddddd, dddd, ddddd"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.direcciones}
               />
               <FormErrorMessage name="direcciones" component={"p"} />
             </div>
-            <div className="mb-3">
+            <div className="mb-2">
+              <label className="mb-1" htmlFor="telefonos">
+                Teléfono(s)
+              </label>
               <InputText
-                type="number"
+                as="textarea"
+                rows={2}
+                id="telefonos"
                 name="telefonos"
-                placeholder="Teléfono"
+                placeholder="xxx-xxx-xxx, xxx-xxx-xxx"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.telefonos}
               />
               <FormErrorMessage name="telefonos" component={"p"} />
             </div>
-            <div className="mb-3">
-              <InputText type="text" name="contactos" placeholder="Contactos" />
+            <div className="mb-2">
+              <label className="mb-1" htmlFor="contactos">
+                Contacto(s)
+              </label>
+              <InputText
+                as="textarea"
+                rows={2}
+                id="contactos"
+                name="contactos"
+                placeholder="ccccc, cccc, ccccc"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.contactos}
+              />
               <FormErrorMessage name="contactos" component={"p"} />
             </div>
           </div>

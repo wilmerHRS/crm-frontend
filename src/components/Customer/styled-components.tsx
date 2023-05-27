@@ -6,6 +6,11 @@ export const FormErrorMessage = styled(ErrorMessage)`
   margin: 0;
 `;
 
+export const FErrorMessage = styled.p`
+  color: red;
+  margin: 0;
+`;
+
 export const InputText = styled(Field)`
   padding: 10px 10px;
   border: 0;
